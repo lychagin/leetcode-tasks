@@ -1,0 +1,11 @@
+{
+    "python.testing.pytestArgs": [
+        "BitManipulation",
+        "BinarySearch",
+        "Sort",
+        "--log-cli-level=DEBUG",
+        "-s"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
