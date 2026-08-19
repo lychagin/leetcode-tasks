@@ -6,11 +6,23 @@ def sol_inst():
     return Solution()
 
 @pytest.mark.parametrize(
-    "nums, result",
+    "nums",
     [
-        ([3,1,2,4], [2,4,3,1]),
-        ([0], [0])
+        [3, 1, 2, 4],
+        [0],
+        [1, 3, 5],
+        [2, 4, 6],
+        [],
+        [5, 2, 4, 1, 3, 0],
     ]
 )
-def test_sort(sol_inst, nums, result):
-    assert sol_inst.sortArrayByParity(nums) == result
+def test_sort(sol_inst, nums):
+    # LeetCode принимает ЛЮБОЙ порядок внутри групп, поэтому проверяем свойство,
+    # а не конкретный массив: сначала все чётные, потом все нечётные, состав тот же.
+    result = sol_inst.sortArrayByParity(list(nums))
+
+    evens = [x for x in result if x % 2 == 0]
+    odds = [x for x in result if x % 2 != 0]
+
+    assert result == evens + odds          # все чётные впереди всех нечётных
+    assert sorted(result) == sorted(nums)  # состав массива не изменился
