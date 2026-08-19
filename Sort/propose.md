@@ -1,6 +1,6 @@
 # Непокрытые виды сортировок — что решать дальше
 
-Актуальное покрытие папки `Sort` — см. §11 в [README.md](README.md).
+Актуальное покрытие папки `Sort` — см. §12 в [README.md](README.md).
 Ниже — только то, на что **пока нет решённой задачи**, и предложения для тренировки.
 
 ## Таблица (raw markdown — можно копировать в трекер/заметки)
@@ -9,7 +9,6 @@
 | Вид сортировки | Задача | Уровень | Ссылка | Почему именно она |
 |---|---|---|---|---|
 | Сортировка выбором (Selection Sort) | 2418. Sort the People | easy | https://leetcode.com/problems/sort-the-people/ | `n ≤ 1000` — `O(n²)` проходит по времени, selection sort можно писать руками. На 912 он даст TLE так же, как пузырёк |
-| Сортировка слиянием (Merge Sort) | 148. Sort List | medium | https://leetcode.com/problems/sort-list/ | Канонический merge sort; на связном списке он ещё и `O(1)` по доп. памяти. Парная к уже решённой 147 |
 | Быстрая сортировка (Quick Sort) | 912. Sort an Array | medium | https://leetcode.com/problems/sort-an-array/ | Третий метод в уже существующий файл рядом с bubble/heap. Обязателен рандомный пивот — иначе TLE на отсортированном тесте |
 | Quickselect (k-й по величине) | 215. Kth Largest Element in an Array | medium | https://leetcode.com/problems/kth-largest-element-in-an-array/ | k-й элемент за `O(n)` в среднем без полной сортировки; фаза partition переиспользуется из quick sort |
 ```
@@ -19,7 +18,6 @@
 | Вид сортировки | Задача | Уровень | Ссылка | Почему именно она |
 |---|---|---|---|---|
 | Сортировка выбором (Selection Sort) | 2418. Sort the People | easy | https://leetcode.com/problems/sort-the-people/ | `n ≤ 1000` — `O(n²)` проходит по времени, selection sort можно писать руками. На 912 он даст TLE так же, как пузырёк |
-| Сортировка слиянием (Merge Sort) | 148. Sort List | medium | https://leetcode.com/problems/sort-list/ | Канонический merge sort; на связном списке он ещё и `O(1)` по доп. памяти. Парная к уже решённой 147 |
 | Быстрая сортировка (Quick Sort) | 912. Sort an Array | medium | https://leetcode.com/problems/sort-an-array/ | Третий метод в уже существующий файл рядом с bubble/heap. Обязателен рандомный пивот — иначе TLE на отсортированном тесте |
 | Quickselect (k-й по величине) | 215. Kth Largest Element in an Array | medium | https://leetcode.com/problems/kth-largest-element-in-an-array/ | k-й элемент за `O(n)` в среднем без полной сортировки; фаза partition переиспользуется из quick sort |
 
@@ -43,6 +41,7 @@
 | Пузырьковая (Bubble) | 912 | `e912_Bubble_Sort_an_Array.py` |
 | Пирамидальная (Heap) | 912 | `e912_Bubble_Sort_an_Array.py` |
 | Вставками (Insertion) | 147 | `e147_Insertion_Sort_list.py` |
+| Слиянием (Merge) | 148 | `e148_Sort_List.py` |
 | Подсчётом (Counting) | 75 | `e75_Sort_Colors.py` |
 | Поразрядная (Radix) | 164 | `e164_Maximum_Gap_Radix_Sort.py` |
 | Блочная (Bucket) | 347, 451 | `e347_Top_K_Frequent_Elements_Block_Sort.py`, `e451_Sort_Characters_By_Frequency_Bucket_sort.py` |
