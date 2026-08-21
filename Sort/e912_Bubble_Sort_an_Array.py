@@ -24,13 +24,50 @@ Constraints:
 -5 * 10^4 <= nums[i] <= 5 * 10^4
 """
 import time
+import random
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format="%(levelname)s | %(message)s")
+logger = logging.getLogger(__name__)
 
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:
         #result = bubble_sort(nums)
-        result = heap_sort(nums)
-        print(f"result: {result}")
-        return result
+        #result = heap_sort(nums)
+        #print(f"result: {result}")
+        self.quick_sort(nums, 0, len(nums) - 1)
+        logger.info(f"nums: {nums}")
+        return nums
+
+    def quick_sort(self, nums: list[int], low: int, high: int):
+        # Базовый случай: если в подмассиве 0 или 1 элемент, сортировать нечего
+        if low >= high:
+            return
+        
+        # 1. Выбираем pivot (лучше брать случайный индекс между low и high!)
+        pivot = nums[random.randint(low, high)]
+        left = low
+        right = high
+
+        # 2. Цикл разделения (Partition) прямо здесь
+        while left < right:
+            # Двигаем левый указатель, пока элемент меньше pivot
+            while nums[left] < pivot:
+                left += 1
+            
+            # Двигаем правый указатель, пока элемент больше pivot
+            while nums[right] > pivot:
+                right -= 1 
+
+            # Если указатели не пересеклись, меняем элементы местами
+            if left <= right:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+                right -= 1
+
+        # 3. Рекурсивные вызовы для двух получившихся частей
+        self.quick_sort(nums, low, right) # Сортируем левую часть
+        self.quick_sort(nums, left, high) # Сортируем правую часть
 
 def bubble_sort(nums: list[int]):
     n = len(nums)
