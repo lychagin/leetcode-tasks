@@ -269,7 +269,7 @@ def find_right(nums, target):
 
 ### 33. Search in Rotated Sorted Array
 
-Файл: `e33_Search_in_Rotated_Sorted_Array.py`
+Файлы: `e33_Search_in_Rotated_Sorted_Array.py`, `cpp/e33_Search_in_Rotated_Sorted_Array.cpp`
 
 Массив отсортировали, а потом «провернули»:
 
@@ -316,9 +316,14 @@ flowchart TD
     G -->|нет| I["right = mid - 1"]
 ```
 
-> 📌 В файле цикл написан как `while left < right`. Безопаснее использовать
-> `while left <= right`, иначе при сужении до одного элемента последняя проверка
-> может не выполниться (например, `nums = [3, 1]`, `target = 1`).
+> 📌 Цикл обязательно `while left <= right` (шаблон А): мы ищем точное
+> совпадение, и при сужении до одного элемента его нужно проверить. С
+> `while left < right` на `nums = [3, 1]`, `target = 1` ответ был бы `-1`.
+> Раньше в файле была именно эта ошибка — исправлена.
+>
+> 📌 C++-версия в `cpp/` — то же решение один в один. Разница только в
+> `mid = left + (right - left) / 2`: в C++ это не стиль, а защита от
+> переполнения `int` (см. раздел 2).
 
 ---
 
