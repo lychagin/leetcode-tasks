@@ -16,3 +16,4 @@ env/
 # ОС
 .DS_Store
 Thumbs.db
+*.x
