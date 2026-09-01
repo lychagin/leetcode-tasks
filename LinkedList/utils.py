@@ -5,6 +5,13 @@ class ListNode:
         self.val = val
         self.next = next
 
+def getNodeByVal(head: ListNode, val: int) -> Optional[ListNode]:
+    while head:
+        if head.val == val:
+            return head
+        head = head.next
+    return None
+
 def makeList(input: list[int]) -> ListNode:
     head = ListNode(0)
     current = head
